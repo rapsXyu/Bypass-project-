@@ -1,0 +1,16 @@
+{
+  "name": "sfl",
+  "version": "1.0.0",
+  "description": "Web Sfl Bypass ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "xDonzCode",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>⛔ AKSES DIBLOKIR - xDonzCode</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #ff0000 0%, #ff4b4b 50%, #ffffff 100%);
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 20px; overflow: hidden; user-select: none; -webkit-tap-highlight-color: transparent;
+  }
+  .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: .4; z-index: 0; animation: float 8s ease-in-out infinite; }
+  .blob.b1 { width: 350px; height: 350px; background: #ff0000; top: -100px; left: -100px; }
+  .blob.b2 { width: 300px; height: 300px; background: #ff8b8b; bottom: -80px; right: -80px; animation-delay: 2s; }
+  @keyframes float { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,-40px) scale(1.15)} }
+
+  .container {
+    position: relative; z-index: 2; max-width: 520px; width: 100%;
+    background: #fff; border-radius: 32px; padding: 45px 30px 35px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.35), 0 10px 0 #b30000;
+    border: 5px solid #ff0000; text-align: center;
+    animation: cardIn .6s cubic-bezier(.2,1.4,.5,1);
+  }
+  @keyframes cardIn { from{opacity:0;transform:translateY(40px) scale(.9)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+  .skull {
+    width: 130px; height: 130px; margin: 0 auto 25px;
+    background: linear-gradient(135deg, #ff0000, #b30000);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 62px;
+    box-shadow: 0 20px 45px rgba(255,0,0,.55), inset 0 -8px 18px rgba(0,0,0,.25);
+    border: 5px solid #fff; animation: pulse 1.8s ease-in-out infinite; position: relative;
+  }
+  .skull::after {
+    content: ''; position: absolute; inset: -12px; border-radius: 50%;
+    border: 3px dashed #ff4b4b; animation: rotate 12s linear infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+
+  h1 { color: #b30000; font-size: 26px; font-weight: 900; letter-spacing: 1px; margin-bottom: 12px; text-shadow: 0 2px 0 #ffd0d0; }
+  h1 .blink { animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: .3; } }
+
+  .subtitle { color: #666; font-size: 14px; line-height: 1.7; margin-bottom: 22px; }
+
+  .info-box {
+    background: linear-gradient(135deg, #fff5f5, #ffe0e0);
+    border: 3px dashed #ff4b4b; border-radius: 18px; padding: 18px;
+    margin-bottom: 22px; text-align: left;
+  }
+  .info-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 10px; padding: 8px 0; font-size: 13px;
+    border-bottom: 1px dashed #ffb3b3; word-break: break-all;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .lbl { color: #b30000; font-weight: 800; display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+  .info-row .val { color: #333; font-weight: 700; text-align: right; flex: 1; }
+  .info-row .val.red { color: #ff0000; }
+
+  .warn-list {
+    text-align: left; background: #fffafa; border: 2px solid #ffe5e5;
+    border-radius: 16px; padding: 16px; margin-bottom: 22px;
+  }
+  .warn-list li {
+    list-style: none; color: #555; font-size: 13px; padding: 6px 0;
+    display: flex; align-items: center; gap: 9px; line-height: 1.5;
+  }
+  .warn-list li i { color: #ff0000; font-size: 14px; flex-shrink: 0; }
+
+  .btn-back {
+    width: 100%; padding: 15px;
+    background: linear-gradient(135deg, #ff0000, #b30000);
+    color: #fff; border: none; border-radius: 16px;
+    font-size: 15px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-family: inherit; letter-spacing: .5px;
+    box-shadow: 0 8px 0 #7a0000, 0 12px 25px rgba(255,0,0,.5); transition: .2s;
+  }
+  .btn-back:active { transform: translateY(6px); box-shadow: 0 2px 0 #7a0000; }
+
+  .footer { margin-top: 22px; font-size: 11px; color: #999; font-weight: 600; }
+  .footer i { color: #ff0000; }
+
+  .countdown { margin-top: 16px; font-size: 12px; color: #999; font-weight: 600; }
+  .countdown b { color: #ff0000; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+
+<div class="container">
+  <div class="skull">
+    <i class="fa-solid fa-skull-crossbones"></i>
+  </div>
+
+  <h1><span class="blink">⛔</span> AKSES DIBLOKIR <span class="blink">⛔</span></h1>
+  <p class="subtitle">
+    Sistem mendeteksi aktivitas mencurigakan.<br>
+    Anda mencoba membuka <b>Developer Tools</b> / <b>Inspect Element</b> / <b>Eruda</b>.
+  </p>
+
+  <div class="info-box">
+    <div class="info-row">
+      <span class="lbl"><i class="fa-solid fa-network-wired"></i> IP ADDRESS</span>
+      <span class="val red" id="ipVal">Loading...</span>
+    </div>
+    <div class="info-row">
+      <span class="lbl"><i class="fa-solid fa-clock"></i> WAKTU</span>
+      <span class="val" id="timeVal">-</span>
+    </div>
+    <div class="info-row">
+      <span class="lbl"><i class="fa-solid fa-mobile-screen"></i> BROWSER</span>
+      <span class="val" id="uaVal">-</span>
+    </div>
+    <div class="info-row">
+      <span class="lbl"><i class="fa-solid fa-shield-halved"></i> STATUS</span>
+      <span class="val red"><i class="fa-solid fa-ban"></i> BLOCKED PERMANENT</span>
+    </div>
+  </div>
+
+  <ul class="warn-list">
+    <li><i class="fa-solid fa-circle-xmark"></i> IP Anda telah dicatat &amp; diblokir permanen</li>
+    <li><i class="fa-solid fa-circle-xmark"></i> Aktivitas Anda dilaporkan ke server</li>
+    <li><i class="fa-solid fa-circle-xmark"></i> Anda tidak dapat mengakses website ini lagi</li>
+    <li><i class="fa-solid fa-circle-xmark"></i> Jangan pernah membuka Developer Tools di sini</li>
+  </ul>
+
+  <button class="btn-back" onclick="tryGoBack()">
+    <i class="fa-solid fa-rotate-left"></i> COBA KEMBALI
+  </button>
+
+  <p class="countdown">
+    Redirect otomatis dalam <b id="cd">10</b> detik...
+  </p>
+
+  <p class="footer">
+    <i class="fa-solid fa-shield"></i> Protected by <b>xDonzCode Security</b> © 2025
+  </p>
+</div>
+
+<script>
+/* Anti devtools di warn page */
+(function() {
+  setInterval(() => {
+    if (window.eruda || window.__ERUDA__) {
+      try { window.eruda.destroy(); } catch(e) {}
+      document.body.innerHTML =
+        '<div style="display:flex;align-items:center;justify-content:center;height:100vh;' +
+        'background:#b30000;color:#fff;font-family:sans-serif;font-size:24px;font-weight:bold;' +
+        'text-align:center;padding:20px">JANGAN COBA-COBA LAGI!</div>';
+    }
+  }, 700);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'F12') { e.preventDefault(); return false; }
+    if (e.ctrlKey && e.shiftKey && ['I','J','C','i','j','c'].includes(e.key)) { e.preventDefault(); return false; }
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) { e.preventDefault(); return false; }
+    if (e.key === 'F5' || (e.ctrlKey && (e.key === 'r' || e.key === 'R'))) { e.preventDefault(); return false; }
+  }, true);
+
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+})();
+
+/* Info user */
+(async function init() {
+  const now = new Date();
+  document.getElementById('timeVal').textContent = now.toLocaleString('id-ID', {
+    day: '2-digit', month: 'short', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  const ua = navigator.userAgent;
+  let browser = 'Unknown';
+  if (ua.includes('Edg')) browser = 'Edge';
+  else if (ua.includes('Chrome')) browser = 'Chrome';
+  else if (ua.includes('Firefox')) browser = 'Firefox';
+  else if (ua.includes('Safari')) browser = 'Safari';
+
+  let os = 'Unknown';
+  if (ua.includes('Android')) os = 'Android';
+  else if (ua.includes('iPhone') || ua.includes('iPad')) os = 'iOS';
+  else if (ua.includes('Windows')) os = 'Windows';
+  else if (ua.includes('Mac')) os = 'macOS';
+  else if (ua.includes('Linux')) os = 'Linux';
+
+  document.getElementById('uaVal').textContent = `${browser} • ${os}`;
+
+  try {
+    const r = await fetch('https://api.ipify.org?format=json');
+    const d = await r.json();
+    document.getElementById('ipVal').textContent = d.ip || 'Unknown';
+  } catch (e) {
+    document.getElementById('ipVal').textContent = 'Hidden';
+  }
+})();
+
+/* Countdown redirect */
+let cd = 10;
+const cdEl = document.getElementById('cd');
+const timer = setInterval(() => {
+  cd--;
+  cdEl.textContent = cd;
+  if (cd <= 0) {
+    clearInterval(timer);
+    window.location.href = 'about:blank';
+  }
+}, 1000);
+
+/* Back button selalu gagal */
+function tryGoBack() {
+  window.location.href = 'about:blank';
+}
+
+/* Anti back button */
+history.pushState(null, '', location.href);
+window.addEventListener('popstate', () => {
+  history.pushState(null, '', location.href);
+  tryGoBack();
+});
+</script>
+</body>
+</html>
